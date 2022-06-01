@@ -14,7 +14,7 @@ export default function App() {
           >
             Alina Smahliuk
           </a>{" "}
-          and is
+          and is{" "}
           <a
             href="https://github.com/SmahliukAlina/weather-react-1.0"
             target="_blank"
