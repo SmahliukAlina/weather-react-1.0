@@ -1,0 +1,33 @@
+.CurrentWeather .cur-city-title {
+  font-family: "Cinzel", serif;
+  font-size: 40px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.CurrentWeather #cur-date {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.CurrentWeather .cur-temperature {
+  font-size: 60px;
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin-left: 20px;
+}
+
+.CurrentWeather .cur-feels-like-title,
+.CurrentWeather .wind-title {
+  font-size: 15px;
+  padding-top: 0;
+}
+
+.CurrentWeather #cur-weather-emoji {
+  font-size: 90px;
+  padding-top: 10px;
+}
+.CurrentWeather #weather-description {
+  font-size: 15px;
+  padding-top: 0;
+}
