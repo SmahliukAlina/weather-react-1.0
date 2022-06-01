@@ -96,6 +96,3 @@
   font-size: 15px;
   padding-top: 0;
 }
-.Weather .card-body .col-left #weather-description::first-letter {
-  text-transform: capitalize;
-}
