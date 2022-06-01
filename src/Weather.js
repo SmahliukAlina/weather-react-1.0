@@ -8,27 +8,6 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState(props.defaultCity);
 
-  const weatherIcons = {
-    "01d": "☀️",
-    "01n": "☀️",
-    "02d": "🌤️",
-    "02n": "🌤️",
-    "03d": "⛅",
-    "03n": "⛅",
-    "04d": "☁️",
-    "04n": "☁️",
-    "09d": "🌧️",
-    "09n": "🌧️",
-    "10d": "🌦️",
-    "10n": "🌦️",
-    "11d": "⛈️",
-    "11n": "⛈️",
-    "13d": "🌨️",
-    "13n": "🌨️",
-    "50d": "🌫️",
-    "50n": "🌫️",
-  };
-
   function handleResponse(response) {
     console.log(response);
     setWeatherData({
@@ -37,7 +16,7 @@ export default function Weather(props) {
       feelsLike: Math.round(response.data.main.feels_like),
       wind: Math.round(response.data.wind.speed),
       description: response.data.weather[0].description,
-      weatherIcon: weatherIcons[response.data.weather[0].icon],
+      weatherIcon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
       ready: true,
     });
