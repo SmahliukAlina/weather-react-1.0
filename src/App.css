@@ -1,0 +1,13 @@
+.App .container {
+  margin: 30px auto;
+}
+
+.App footer {
+  color: #048998;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+.App footer a {
+  color: #048998;
+}

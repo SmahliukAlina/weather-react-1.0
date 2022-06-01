@@ -1,0 +1,64 @@
+.Weather h1 {
+  color: #048998;
+  font-size: 48px;
+  font-weight: 500;
+  margin-bottom: 0rem;
+}
+
+.Weather button {
+  background-color: #048998;
+  border: 1px solid #048998;
+  border-radius: 4px;
+  box-shadow: 10px 5px 5px #c4dce0;
+  color: #f6f5f5;
+  transition: all 200ms ease-in-out;
+}
+
+.Weather button:hover {
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.Weather .card {
+  width: 48rem;
+  height: fit-content;
+}
+
+.Weather .card-header {
+  background-color: #abcecf;
+  font-family: "Cinzel", serif;
+}
+
+.Weather .card-body {
+  background-color: #daf4f5;
+  color: #048998;
+  font-family: "Domine", serif;
+  font-weight: 500;
+}
+
+.Weather .search {
+  text-align: right;
+}
+
+.Weather .search #city-input {
+  border: 1px solid #3bb4c1;
+  border-radius: 4px;
+  width: 60%;
+}
+
+.Weather .search #city-input:focus {
+  color: #048998;
+  outline: none;
+}
+
+.Weather .search #search-btn,
+.Weather #cur-loc-btn {
+  width: 70px;
+}
+
+.Weather .card-body .col-right,
+.Weather .card-body .col-left {
+  margin-top: 30px;
+  text-align: center;
+}
