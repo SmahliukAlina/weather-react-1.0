@@ -10,7 +10,6 @@ export default function Weather() {
   const [city, setCity] = useState({ search: "location", name: null });
 
   function handleResponse(response) {
-    console.log(response);
     setWeatherData({
       temperature: Math.round(response.data.main.temp),
       city: response.data.name,
