@@ -4,7 +4,7 @@
 }
 
 .DailyForecast .day {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .DailyForecast .date {
@@ -18,4 +18,19 @@
 
 .DailyForecast .weather-emoji {
   font-size: 30px;
+}
+
+@media (max-width: 992px) {
+  .DailyForecast .day {
+    font-size: 12px;
+  }
+
+  .DailyForecast .date {
+    font-size: 12px;
+  }
+
+  .DailyForecast .temperature {
+    font-size: 17px;
+    padding-top: 5px;
+  }
 }

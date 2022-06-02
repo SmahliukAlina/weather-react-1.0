@@ -21,7 +21,8 @@
 }
 
 .Weather .card {
-  width: 48rem;
+  margin: 0 auto;
+  width: 60%;
   height: fit-content;
 }
 
@@ -37,10 +38,9 @@
   font-weight: 500;
 }
 
-.Weather .search {
-  text-align: right;
+.Weather .search form {
+  display: inline;
 }
-
 .Weather .search #city-input {
   border: 1px solid #3bb4c1;
   border-radius: 4px;
@@ -53,7 +53,7 @@
 }
 
 .Weather .search #search-btn,
-.Weather #cur-loc-btn {
+.Weather .search #cur-loc-btn {
   width: 70px;
 }
 
@@ -61,4 +61,14 @@
 .Weather .card-body .col-left {
   margin-top: 30px;
   text-align: center;
+}
+
+@media (max-width: 992px) {
+  .Weather h1 {
+    font-size: 36px;
+  }
+  .Weather .search #search-btn,
+  .Weather .search #cur-loc-btn {
+    width: 30px;
+  }
 }

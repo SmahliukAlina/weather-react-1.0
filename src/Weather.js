@@ -64,8 +64,8 @@ export default function Weather() {
           </div>
 
           <div className="card-body">
-            <div className="row">
-              <div className="col-8 search">
+            <div className="row text-center">
+              <div className="col-md search">
                 <form id="searchByCity" onSubmit={handleSubmit}>
                   <input
                     type="search"
@@ -79,20 +79,22 @@ export default function Weather() {
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
-              </div>
-              <div className="col-4">
-                <button id="cur-loc-btn" onClick={handleCurrentLocation}>
+                <button
+                  id="cur-loc-btn"
+                  className="ms-3"
+                  onClick={handleCurrentLocation}
+                >
                   <i className="fa-solid fa-location-dot"></i>
                 </button>
               </div>
             </div>
 
             <div className="row">
-              <div className="col col-left">
+              <div className="col-lg col-left">
                 <CurrentWeather data={weatherData} />
               </div>
 
-              <div className="col col-right">
+              <div className="col-lg col-right">
                 <Forecast
                   longitude={weatherData.longitude}
                   latitude={weatherData.latitude}
