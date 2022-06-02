@@ -5,9 +5,9 @@ import "./Weather.css";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 
-export default function Weather(props) {
+export default function Weather() {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState({ search: "location", name: null });
 
   function handleResponse(response) {
     console.log(response);
@@ -28,7 +28,7 @@ export default function Weather(props) {
   function searchByCity() {
     const apiKey = "f7ab8c50642226d2981457d7445b4fa2";
     const unitSys = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unitSys}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${apiKey}&units=${unitSys}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -45,8 +45,9 @@ export default function Weather(props) {
   }
 
   function handleCityChange(event) {
-    setCity(event.target.value);
+    setCity({ name: event.target.value });
   }
+
   function getLocation(position) {
     searchByLocation(
       Math.round(position.coords.latitude),
@@ -79,7 +80,7 @@ export default function Weather(props) {
                     autoComplete="off"
                     onChange={handleCityChange}
                   />
-                  <button className="submit" id="search-btn">
+                  <button className="submit ms-3" id="search-btn">
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
@@ -108,7 +109,12 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    searchByCity();
+    if (city.search === "location") {
+      navigator.geolocation.getCurrentPosition(getLocation);
+      setCity({ search: "city" });
+    } else {
+      searchByCity();
+    }
     return <div>Loading....</div>;
   }
 }
