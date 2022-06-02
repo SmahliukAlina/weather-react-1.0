@@ -19,7 +19,6 @@ export default function DailyForecast(props) {
 
   return (
     <div className="DailyForecast">
-      <div className="forecast-title">Forecast</div>
       <div className="row">
         <div className="col-4 weekday" id="weekday">
           <div className="day" id="day">

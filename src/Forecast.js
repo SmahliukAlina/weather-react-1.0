@@ -20,7 +20,12 @@ export default function Forecast(props) {
   if (forecastData.ready) {
     return (
       <div className="Forecast">
-        <DailyForecast data={forecastData.weatherDaily[1]} />
+        <div className="forecast-title">Forecast</div>
+        {forecastData.weatherDaily.map(function (dailyData, index) {
+          if (index > 1 && index < 7) {
+            return <DailyForecast data={dailyData} />;
+          }
+        })}
       </div>
     );
   } else {
