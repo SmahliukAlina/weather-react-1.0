@@ -67,6 +67,11 @@
   .Weather h1 {
     font-size: 36px;
   }
+
+  .Weather .card {
+    width: 90%;
+  }
+
   .Weather .search #search-btn,
   .Weather .search #cur-loc-btn {
     width: 30px;
