@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -18,6 +19,8 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       weatherIcon: response.data.weather[0].icon,
       date: new Date(response.data.dt * 1000),
+      longitude: response.data.coord.lon,
+      latitude: response.data.coord.lat,
       ready: true,
     });
   }
@@ -75,7 +78,12 @@ export default function Weather(props) {
                 <CurrentWeather data={weatherData} />
               </div>
 
-              <div className="col col-right"></div>
+              <div className="col col-right">
+                <Forecast
+                  longitude={weatherData.longitude}
+                  latitude={weatherData.latitude}
+                />
+              </div>
             </div>
           </div>
         </div>

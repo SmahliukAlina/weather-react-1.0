@@ -1,30 +1,8 @@
 import React from "react";
+import FormatWeekDay from "./FormatWeekDay";
+import FormatMonth from "./FormatMonth";
 
 export default function FormattedDate(props) {
-  const weekDays = [
-    { short: "Sun", long: "Sunday" },
-    { short: "Mon", long: "Monday" },
-    { short: "Tue", long: "Tuesday" },
-    { short: "Wed", long: "Wednesday" },
-    { short: "Thu", long: "Thursday" },
-    { short: "Fri", long: "Friday" },
-    { short: "Sat", long: "Saturday" },
-  ];
-
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
   function formatTime(hour, min) {
     let hours = hour;
     let minutes = min;
@@ -36,13 +14,15 @@ export default function FormattedDate(props) {
     }
     return `${hours}:${minutes}`;
   }
+  let now = new Date(props.timestamp);
 
-  function formateFullCurDate(timestamp) {
-    let now = new Date(timestamp);
-    return `${weekDays[now.getDay()].short}, 
-  ${months[now.getMonth()]} ${now.getDate()}, 
-  ${formatTime(now.getHours(), now.getMinutes())}`;
-  }
-
-  return <span>{formateFullCurDate(props.timestamp)}</span>;
+  return (
+    <span>
+      <FormatWeekDay form="short" dayIndex={now.getDay()} />
+      {", "}
+      <FormatMonth monthIndex={now.getMonth()} /> {now.getDate()}
+      {", "}
+      {formatTime(now.getHours(), now.getMinutes())}
+    </span>
+  );
 }
