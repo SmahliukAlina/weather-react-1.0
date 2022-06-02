@@ -1,4 +1,5 @@
 import React from "react";
+import "./DailyForecast.css";
 import FormatWeekDay from "./FormatWeekDay";
 import FormatMonth from "./FormatMonth";
 import WeatherIcon from "./WeatherIcon";

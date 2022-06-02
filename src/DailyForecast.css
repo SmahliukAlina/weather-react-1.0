@@ -1,0 +1,21 @@
+.DailyForecast .weekday {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.DailyForecast .day {
+  font-size: 17px;
+}
+
+.DailyForecast .date {
+  font-size: 15px;
+}
+
+.DailyForecast .temperature {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.DailyForecast .weather-emoji {
+  font-size: 30px;
+}

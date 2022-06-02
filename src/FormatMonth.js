@@ -3,7 +3,6 @@ import React from "react";
 export default function FormatMonth(props) {
   const months = [
     { short: "Jan", long: "January" },
-
     { short: "Feb", long: "February" },
     { short: "Mar", long: "March" },
     { short: "Apr", long: "April" },
