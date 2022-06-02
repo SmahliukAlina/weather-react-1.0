@@ -75,6 +75,6 @@
 
   .Weather .search #search-btn,
   .Weather .search #cur-loc-btn {
-    width: fit-content;
+    width: 50px;
   }
 }
