@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import CurrentTemperature from "./CurrentTemperature";
 import "./CurrentWeather.css";
 
 export default function CurrentWeather(props) {
@@ -19,19 +20,11 @@ export default function CurrentWeather(props) {
       </div>
       <div className="row">
         <div className="col" id="cur-weather">
-          <div className="cur-temperature">
-            <span className="temp-value" id="cur-temp-value">
-              {props.data.temperature}
-            </span>
-            <span className="unit cur-unit" id="cur-unit">
-              °C
-            </span>
-          </div>
-          <div className="cur-feels-like-title">
-            Feels like{" "}
-            <span id="cur-feels-like-temp">{props.data.feelsLike}</span>
-            <span className="unit cur-unit">°C</span>
-          </div>
+          <CurrentTemperature
+            tempCelsius={props.data.temperature}
+            feelsLikeCelsius={props.data.feelsLike}
+          />
+
           <div className="weather-emoji" id="cur-weather-emoji">
             <WeatherIcon iconCode={props.data.weatherIcon} />
           </div>

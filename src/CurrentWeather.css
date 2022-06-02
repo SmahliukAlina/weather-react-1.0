@@ -10,14 +10,6 @@
   margin-bottom: 15px;
 }
 
-.CurrentWeather .cur-temperature {
-  font-size: 60px;
-  padding-top: 20px;
-  padding-bottom: 0;
-  margin-left: 20px;
-}
-
-.CurrentWeather .cur-feels-like-title,
 .CurrentWeather .wind-title {
   font-size: 15px;
   padding-top: 0;
