@@ -20,7 +20,7 @@ export default function FormattedDate(props) {
     <span>
       <FormatWeekDay form="short" dayIndex={now.getDay()} />
       {", "}
-      <FormatMonth monthIndex={now.getMonth()} /> {now.getDate()}
+      <FormatMonth monthIndex={now.getMonth()} form="short" /> {now.getDate()}
       {", "}
       {formatTime(now.getHours(), now.getMinutes())}
     </span>

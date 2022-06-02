@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Forecast.css";
 
@@ -9,6 +9,10 @@ export default function Forecast(props) {
   let unitSys = "metric";
   let exclude = "current,minutely,hourly,alerts";
   let [forecastData, setForecastData] = useState({ ready: false });
+
+  useEffect(() => {
+    setForecastData({ ready: false });
+  }, [props.latitude]);
 
   function handleResponse(response) {
     setForecastData({

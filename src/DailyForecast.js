@@ -25,7 +25,8 @@ export default function DailyForecast(props) {
             <FormatWeekDay form="long" dayIndex={date.getDay()} />
           </div>
           <div className="date" id="date">
-            <FormatMonth monthIndex={date.getMonth()} /> {date.getDate()}
+            <FormatMonth monthIndex={date.getMonth()} form="long" />{" "}
+            {date.getDate()}
           </div>
         </div>
         <div className="col-5 temperature">
