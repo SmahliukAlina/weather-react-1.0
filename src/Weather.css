@@ -6,6 +6,7 @@
 }
 
 .Weather button {
+  text-align: center;
   background-color: #048998;
   border: 1px solid #048998;
   border-radius: 4px;
