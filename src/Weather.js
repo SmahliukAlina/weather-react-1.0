@@ -25,20 +25,38 @@ export default function Weather(props) {
     });
   }
 
-  function search() {
+  function searchByCity() {
     const apiKey = "f7ab8c50642226d2981457d7445b4fa2";
     const unitSys = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${unitSys}`;
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function searchByLocation(lat, lon) {
+    const apiKey = "f7ab8c50642226d2981457d7445b4fa2";
+    const unitSys = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unitSys}&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    searchByCity();
   }
 
   function handleCityChange(event) {
     setCity(event.target.value);
+  }
+  function getLocation(position) {
+    searchByLocation(
+      Math.round(position.coords.latitude),
+      Math.round(position.coords.longitude)
+    );
+  }
+
+  function handleCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getLocation);
   }
 
   if (weatherData.ready) {
@@ -52,7 +70,7 @@ export default function Weather(props) {
           <div className="card-body">
             <div className="row">
               <div className="col-8 search">
-                <form id="search" onSubmit={handleSubmit}>
+                <form id="searchByCity" onSubmit={handleSubmit}>
                   <input
                     type="search"
                     name="q"
@@ -67,7 +85,7 @@ export default function Weather(props) {
                 </form>
               </div>
               <div className="col-4">
-                <button id="cur-loc-btn">
+                <button id="cur-loc-btn" onClick={handleCurrentLocation}>
                   <i className="fa-solid fa-location-dot"></i>
                 </button>
               </div>
@@ -90,7 +108,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    search();
+    searchByCity();
     return <div>Loading....</div>;
   }
 }
