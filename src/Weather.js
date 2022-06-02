@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 
 export default function Weather() {
+  const apiKey = "f7ab8c50642226d2981457d7445b4fa2";
+  const unitSys = "metric";
   const [weatherData, setWeatherData] = useState({ ready: false });
   const [city, setCity] = useState({ search: "location", name: null });
 
@@ -24,20 +25,6 @@ export default function Weather() {
     });
   }
 
-  function searchByCity() {
-    const apiKey = "f7ab8c50642226d2981457d7445b4fa2";
-    const unitSys = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${apiKey}&units=${unitSys}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
-
-  function searchByLocation(lat, lon) {
-    const apiKey = "f7ab8c50642226d2981457d7445b4fa2";
-    const unitSys = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unitSys}&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
-
   function handleSubmit(event) {
     event.preventDefault();
     searchByCity();
@@ -47,16 +34,25 @@ export default function Weather() {
     setCity({ name: event.target.value });
   }
 
+  function handleCurrentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getLocation);
+  }
+  function searchByCity() {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.name}&appid=${apiKey}&units=${unitSys}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function searchByLocation(lat, lon) {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${unitSys}&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   function getLocation(position) {
     searchByLocation(
       Math.round(position.coords.latitude),
       Math.round(position.coords.longitude)
     );
-  }
-
-  function handleCurrentLocation(event) {
-    event.preventDefault();
-    navigator.geolocation.getCurrentPosition(getLocation);
   }
 
   if (weatherData.ready) {

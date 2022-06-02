@@ -1,8 +1,8 @@
 import React from "react";
+import "./CurrentWeather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-import CurrentTemperature from "./CurrentTemperature";
-import "./CurrentWeather.css";
+import CurrentCelsius from "./CurrentCelsius";
 
 export default function CurrentWeather(props) {
   return (
@@ -20,7 +20,7 @@ export default function CurrentWeather(props) {
       </div>
       <div className="row">
         <div className="col" id="cur-weather">
-          <CurrentTemperature
+          <CurrentCelsius
             tempCelsius={props.data.temperature}
             feelsLikeCelsius={props.data.feelsLike}
           />

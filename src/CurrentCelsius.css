@@ -1,0 +1,15 @@
+.CurrentCelsius .cur-temperature {
+  font-size: 60px;
+  padding-top: 20px;
+  padding-bottom: 0;
+  margin-left: 20px;
+}
+
+.CurrentCelsius .cur-feels-like-title {
+  font-size: 15px;
+  padding-top: 0;
+}
+
+.CurrentCelsius #change-unit-btn {
+  font-size: 20px;
+}
