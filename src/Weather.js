@@ -75,11 +75,15 @@ export default function Weather() {
                     autoComplete="off"
                     onChange={handleCityChange}
                   />
-                  <button className="submit" id="search-btn">
+                  <button className="submit ms-3" id="search-btn">
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
-                <button id="cur-loc-btn" onClick={handleCurrentLocation}>
+                <button
+                  id="cur-loc-btn"
+                  className="ms-3"
+                  onClick={handleCurrentLocation}
+                >
                   <i className="fa-solid fa-location-dot"></i>
                 </button>
               </div>
